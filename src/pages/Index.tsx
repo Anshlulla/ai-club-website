@@ -133,8 +133,8 @@ const Index = () => {
         {/* RESOURCES SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 tracking-tight">Resources</h2>
-          {resourceCards.length <= 4 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+          {resourceCards.length <= 3 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
               {resourceCards.map((card) => (
                 <ResourceCard
                   key={card.title}
