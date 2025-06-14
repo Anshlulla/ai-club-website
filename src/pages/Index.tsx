@@ -7,6 +7,7 @@ import BlogCard from "../components/blog/BlogCard";
 import ProjectCard from "../components/project/ProjectCard";
 import ResourceCard from "../components/resources/ResourceCard";
 import Footer from "../components/Footer";
+import CarouselRow from "../components/CarouselRow";
 import {
   Carousel,
   CarouselContent,
@@ -55,134 +56,128 @@ const Index = () => {
         {/* ABOUT SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-indigo-800 tracking-tight">About the Club</h2>
-          <SectionCarousel>
-            <AboutCard
-              title="Who We Are"
-              text="Welcome to the AI Club! A passionate group diving into Artificial Intelligence, Machine Learning, and creative tech as a community."
-            />
-            <AboutCard
-              title="Our Mission"
-              text="Empower students to explore, build, and share. Together we organize workshops, discussions and projects to push boundaries."
-            />
-            <AboutCard
-              title="Inclusive & Fun"
-              text="All backgrounds welcome! Join for learning, competitions, or just to have fun with tech & friends."
-            />
-          </SectionCarousel>
+          <CarouselRow items={[
+              <AboutCard
+                title="Who We Are"
+                text="Welcome to the AI Club! A passionate group diving into Artificial Intelligence, Machine Learning, and creative tech as a community."
+                key="about-1"
+              />,
+              <AboutCard
+                title="Our Mission"
+                text="Empower students to explore, build, and share. Together we organize workshops, discussions and projects to push boundaries."
+                key="about-2"
+              />,
+              <AboutCard
+                title="Inclusive & Fun"
+                text="All backgrounds welcome! Join for learning, competitions, or just to have fun with tech & friends."
+                key="about-3"
+              />
+            ]}
+            slidesPerView={{ base: 1, md: 2, lg: 3 }}
+          />
         </section>
         {/* EVENTS SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-indigo-900 tracking-tight">Events</h2>
-          <SectionCarousel>
+          <CarouselRow items={[
             <EventCard
               title="Annual Hackathon"
               date="March 2025"
               img="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=400&q=80"
-            />
+              key="event-1"
+            />,
             <EventCard
               title="AI Quiz Bowl"
               date="Feb 2025"
               img="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80"
-            />
+              key="event-2"
+            />,
             <EventCard
               title="Industry Talks"
               date="Ongoing"
               img="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80"
+              key="event-3"
             />
-          </SectionCarousel>
+          ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
         {/* AIBYSS SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-violet-900 tracking-tight">AIBYSS</h2>
-          <SectionCarousel>
-            <AibyssCard session="Keynote: Frontiers in AI" speaker="Dr. S. Ghosh" img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" />
-            <AibyssCard session="Hands-on: Gen AI Tools" speaker="Media Team" img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80" />
-            <AibyssCard session="Celebration & Networking" img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" />
-          </SectionCarousel>
+          <CarouselRow items={[
+            <AibyssCard session="Keynote: Frontiers in AI" speaker="Dr. S. Ghosh" img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" key="aibyss-1" />,
+            <AibyssCard session="Hands-on: Gen AI Tools" speaker="Media Team" img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80" key="aibyss-2" />,
+            <AibyssCard session="Celebration & Networking" img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" key="aibyss-3" />
+          ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
         {/* MEDIA POSTS SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-cyan-800 tracking-tight">Concept Media Posts</h2>
-          <SectionCarousel>
-            <MediaPostCard title="Intro to GANs" subtitle="Infographic" />
-            <MediaPostCard title="What is NLP?" subtitle="Quick Guide" />
-            <MediaPostCard title="Future of Robotics" subtitle="Explainer" />
-          </SectionCarousel>
+          <CarouselRow items={[
+            <MediaPostCard title="Intro to GANs" subtitle="Infographic" key="media-1" />,
+            <MediaPostCard title="What is NLP?" subtitle="Quick Guide" key="media-2" />,
+            <MediaPostCard title="Future of Robotics" subtitle="Explainer" key="media-3" />
+          ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
         {/* BLOGS SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-green-800 tracking-tight">Blogs & Articles</h2>
-          <SectionCarousel>
+          <CarouselRow items={[
             <BlogCard
               quote="AI won’t replace you, but a person using AI might."
               author="Sara S, AI Club"
               link="https://medium.com/"
-            />
+              key="blog-1"
+            />,
             <BlogCard
               quote="Prompt engineering is the new superpower."
               author="Shivam B, Club Writer"
               link="https://medium.com/"
-            />
+              key="blog-2"
+            />,
             <BlogCard
               quote="Machine learning is like farming: the real growth happens in the unseen layers."
               author="Mary K, ML Enthusiast"
               link="https://medium.com/"
+              key="blog-3"
             />
-          </SectionCarousel>
+          ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
         {/* RESOURCES SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 tracking-tight">Resources</h2>
-          {resourceCards.length <= 3 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
-              {resourceCards.map((card) => (
-                <ResourceCard
-                  key={card.title}
-                  title={card.title}
-                  description={card.description}
-                  img={card.img}
-                  link={card.link}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="relative">
-              <Carousel className="w-full max-w-5xl mx-auto">
-                <CarouselContent>
-                  {resourceCards.map((card) => (
-                    <CarouselItem key={card.title}>
-                      <ResourceCard
-                        title={card.title}
-                        description={card.description}
-                        img={card.img}
-                        link={card.link}
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
-            </div>
-          )}
+          <CarouselRow
+            items={resourceCards.map((card) => (
+              <ResourceCard
+                key={card.title}
+                title={card.title}
+                description={card.description}
+                img={card.img}
+                link={card.link}
+              />
+            ))}
+            slidesPerView={{ base: 1, md: 2, lg: 3 }}
+          />
         </section>
         {/* PROJECTS SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-800 tracking-tight">Projects</h2>
-          <SectionCarousel>
+          <CarouselRow items={[
             <ProjectCard
               project="Generative Art App"
               img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80"
-            />
+              key="project-1"
+            />,
             <ProjectCard
               project="NLP Chatbot"
               img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
-            />
+              key="project-2"
+            />,
             <ProjectCard
               project="Smart Attendance"
               img="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80"
+              key="project-3"
             />
-          </SectionCarousel>
+          ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
       </main>
       <Footer />
