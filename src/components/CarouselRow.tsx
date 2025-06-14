@@ -81,16 +81,23 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
     );
   }
 
-  // Fallback: for 1–3 items (or whatever slidesPerView is), lay them out in a horizontal flex row (not grid), just like the Resources section
+  // Fallback: for 1–3 items (or whatever slidesPerView is), lay them out in a single horizontal scroll row, like the Resources section
   return (
     <div
-      className={`flex flex-row flex-wrap justify-center gap-6 w-full ${className ?? ""}`}
+      className={`flex flex-row flex-nowrap overflow-x-auto max-w-full gap-6 py-3 px-2 scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-white ${className ?? ""}`}
+      style={{ WebkitOverflowScrolling: "touch" }}
     >
       {items.map((elem, i) => (
-        <div key={i} className={itemClassName}>{elem}</div>
+        <div
+          key={i}
+          className={`shrink-0 w-72 max-w-[90vw] ${itemClassName ?? ""}`}
+        >
+          {elem}
+        </div>
       ))}
     </div>
   );
 };
 
 export default CarouselRow;
+
