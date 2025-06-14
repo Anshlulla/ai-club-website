@@ -15,6 +15,33 @@ import {
   CarouselNext,
 } from "../components/ui/carousel";
 
+const resourceCards = [
+  {
+    title: "Machine Learning Crash Course",
+    description: "Google’s free course with video lectures, notes, and practical exercises.",
+    img: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=200&q=80",
+    link: "https://developers.google.com/machine-learning/crash-course",
+  },
+  {
+    title: "Stanford CS231n",
+    description: "Legendary deep learning course with video lectures and notes.",
+    img: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=200&q=80",
+    link: "http://cs231n.stanford.edu/",
+  },
+  {
+    title: "Kaggle",
+    description: "Data science competitions, public datasets, and hands-on projects.",
+    img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=200&q=80",
+    link: "https://kaggle.com/",
+  },
+  {
+    title: "Fast.ai",
+    description: "Practical, beginner-friendly deep learning MOOC and library.",
+    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=200&q=80",
+    link: "https://course.fast.ai/",
+  }
+]
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-100 font-sans flex flex-col">
@@ -105,49 +132,39 @@ const Index = () => {
         </section>
         {/* RESOURCES SECTION */}
         <section>
-          <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 tracking-tight">
-            Resources
-          </h2>
-          <div className="relative">
-            <Carousel className="w-full max-w-5xl mx-auto">
-              <CarouselContent>
-                <CarouselItem>
-                  <ResourceCard
-                    title="Machine Learning Crash Course"
-                    description="Google’s free course with video lectures, notes, and practical exercises."
-                    img="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=200&q=80"
-                    link="https://developers.google.com/machine-learning/crash-course"
-                  />
-                </CarouselItem>
-                <CarouselItem>
-                  <ResourceCard
-                    title="Stanford CS231n"
-                    description="Legendary deep learning course with video lectures and notes."
-                    img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=200&q=80"
-                    link="http://cs231n.stanford.edu/"
-                  />
-                </CarouselItem>
-                <CarouselItem>
-                  <ResourceCard
-                    title="Kaggle"
-                    description="Data science competitions, public datasets, and hands-on projects."
-                    img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=200&q=80"
-                    link="https://kaggle.com/"
-                  />
-                </CarouselItem>
-                <CarouselItem>
-                  <ResourceCard
-                    title="Fast.ai"
-                    description="Practical, beginner-friendly deep learning MOOC and library."
-                    img="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=200&q=80"
-                    link="https://course.fast.ai/"
-                  />
-                </CarouselItem>
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-          </div>
+          <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 tracking-tight">Resources</h2>
+          {resourceCards.length <= 4 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+              {resourceCards.map((card) => (
+                <ResourceCard
+                  key={card.title}
+                  title={card.title}
+                  description={card.description}
+                  img={card.img}
+                  link={card.link}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="relative">
+              <Carousel className="w-full max-w-5xl mx-auto">
+                <CarouselContent>
+                  {resourceCards.map((card) => (
+                    <CarouselItem key={card.title}>
+                      <ResourceCard
+                        title={card.title}
+                        description={card.description}
+                        img={card.img}
+                        link={card.link}
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            </div>
+          )}
         </section>
         {/* PROJECTS SECTION */}
         <section>
