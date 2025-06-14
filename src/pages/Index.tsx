@@ -7,6 +7,13 @@ import BlogCard from "../components/blog/BlogCard";
 import ProjectCard from "../components/project/ProjectCard";
 import ResourceCard from "../components/resources/ResourceCard";
 import Footer from "../components/Footer";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "../components/ui/carousel";
 
 const Index = () => {
   return (
@@ -98,33 +105,49 @@ const Index = () => {
         </section>
         {/* RESOURCES SECTION */}
         <section>
-          <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 tracking-tight">Resources</h2>
-          <SectionCarousel>
-            <ResourceCard 
-              title="Machine Learning Crash Course"
-              description="Google’s free course with video lectures, notes, and practical exercises." 
-              img="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=200&q=80"
-              link="https://developers.google.com/machine-learning/crash-course"
-            />
-            <ResourceCard 
-              title="Stanford CS231n"
-              description="Legendary deep learning course with video lectures and notes." 
-              img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=200&q=80"
-              link="http://cs231n.stanford.edu/"
-            />
-            <ResourceCard 
-              title="Kaggle"
-              description="Data science competitions, public datasets, and hands-on projects." 
-              img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=200&q=80"
-              link="https://kaggle.com/"
-            />
-            <ResourceCard 
-              title="Fast.ai"
-              description="Practical, beginner-friendly deep learning MOOC and library."
-              img="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=200&q=80"
-              link="https://course.fast.ai/"
-            />
-          </SectionCarousel>
+          <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 tracking-tight">
+            Resources
+          </h2>
+          <div className="relative">
+            <Carousel className="w-full max-w-5xl mx-auto">
+              <CarouselContent>
+                <CarouselItem>
+                  <ResourceCard
+                    title="Machine Learning Crash Course"
+                    description="Google’s free course with video lectures, notes, and practical exercises."
+                    img="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=200&q=80"
+                    link="https://developers.google.com/machine-learning/crash-course"
+                  />
+                </CarouselItem>
+                <CarouselItem>
+                  <ResourceCard
+                    title="Stanford CS231n"
+                    description="Legendary deep learning course with video lectures and notes."
+                    img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=200&q=80"
+                    link="http://cs231n.stanford.edu/"
+                  />
+                </CarouselItem>
+                <CarouselItem>
+                  <ResourceCard
+                    title="Kaggle"
+                    description="Data science competitions, public datasets, and hands-on projects."
+                    img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=200&q=80"
+                    link="https://kaggle.com/"
+                  />
+                </CarouselItem>
+                <CarouselItem>
+                  <ResourceCard
+                    title="Fast.ai"
+                    description="Practical, beginner-friendly deep learning MOOC and library."
+                    img="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=200&q=80"
+                    link="https://course.fast.ai/"
+                  />
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
         </section>
         {/* PROJECTS SECTION */}
         <section>
