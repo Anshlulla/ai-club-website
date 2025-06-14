@@ -46,7 +46,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   const slides = useSlidesPerView(slidesPerView);
   if (!items.length) return null;
 
-  // Show carousel & arrows if more items than slides available
+  // Carousel: show & arrows if more items than slides available
   if (items.length > slides) {
     return (
       <div className={className}>
@@ -81,20 +81,32 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
     );
   }
 
-  // Fallback: for 1–3 items (or whatever slidesPerView is), lay them out in a single horizontal scroll row, like the Resources section
+  // Fallback: for 1–3 items (or fewer than slidesPerView), lay them out in a single horizontal scrollable row, edge-to-edge background
   return (
     <div
-      className={`flex flex-row flex-nowrap overflow-x-auto max-w-full gap-6 py-3 px-2 scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-white ${className ?? ""}`}
-      style={{ WebkitOverflowScrolling: "touch" }}
+      className={`relative left-0 right-0 w-screen max-w-none -mx-4 sm:-mx-8 md:-mx-14 lg:-mx-28 px-0 py-0 ${className ?? ""}`}
+      style={{
+        background: "linear-gradient(90deg,#edf2fb 10%, #fff 90%)", // subtle gradient, adjust as needed
+      }}
     >
-      {items.map((elem, i) => (
-        <div
-          key={i}
-          className={`shrink-0 w-72 max-w-[90vw] ${itemClassName ?? ""}`}
-        >
-          {elem}
-        </div>
-      ))}
+      <div
+        className="flex flex-row flex-nowrap overflow-x-auto gap-4 sm:gap-6 md:gap-8 py-4 sm:py-6 md:py-8 px-4 sm:px-8 md:px-14 lg:px-28 scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-white"
+        style={{ WebkitOverflowScrolling: "touch", minHeight: 1 }}
+        tabIndex={0}
+        aria-label="carousel row"
+      >
+        {items.map((elem, i) => (
+          <div
+            key={i}
+            className={`shrink-0 w-64 sm:w-72 max-w-[90vw] sm:max-w-xs md:max-w-sm ${itemClassName ?? ""} transition-transform duration-300`}
+            style={{
+              scrollSnapAlign: "center"
+            }}
+          >
+            {elem}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
