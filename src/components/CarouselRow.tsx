@@ -84,21 +84,39 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   // Fallback: for 1–3 items (or fewer than slidesPerView), lay them out in a single horizontal scrollable row, edge-to-edge background
   return (
     <div
-      className={`relative left-0 right-0 w-screen max-w-none -mx-4 sm:-mx-8 md:-mx-14 lg:-mx-28 px-0 py-0 ${className ?? ""}`}
+      // Prevents page scrollbars, background fills whole screen edge-to-edge on all viewports
+      className={`relative left-1/2 right-1/2 -translate-x-1/2 w-screen max-w-none overflow-x-clip py-0 ${className ?? ""}`}
       style={{
-        background: "linear-gradient(90deg,#edf2fb 10%, #fff 90%)", // subtle gradient, adjust as needed
+        background: "linear-gradient(90deg,#edf2fb 10%, #fff 90%)"
       }}
     >
       <div
-        className="flex flex-row flex-nowrap overflow-x-auto gap-4 sm:gap-6 md:gap-8 py-4 sm:py-6 md:py-8 px-4 sm:px-8 md:px-14 lg:px-28 scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-white"
-        style={{ WebkitOverflowScrolling: "touch", minHeight: 1 }}
+        className="
+          flex flex-row flex-nowrap 
+          overflow-x-auto 
+          gap-4 sm:gap-6 md:gap-8 
+          py-4 sm:py-6 md:py-8 
+          px-4 sm:px-8 md:px-14 lg:px-28 
+          scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-white
+          snap-x snap-mandatory
+        "
+        style={{
+          WebkitOverflowScrolling: "touch",
+          minHeight: 1,
+        }}
         tabIndex={0}
         aria-label="carousel row"
       >
         {items.map((elem, i) => (
           <div
             key={i}
-            className={`shrink-0 w-64 sm:w-72 max-w-[90vw] sm:max-w-xs md:max-w-sm ${itemClassName ?? ""} transition-transform duration-300`}
+            className={`
+              shrink-0 snap-center
+              w-[min(20rem,90vw)] sm:w-72 md:w-80
+              max-w-xs md:max-w-sm
+              transition-transform duration-300
+              ${itemClassName ?? ""}
+            `}
             style={{
               scrollSnapAlign: "center"
             }}
@@ -112,4 +130,3 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
 };
 
 export default CarouselRow;
-
