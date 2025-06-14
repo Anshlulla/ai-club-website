@@ -40,6 +40,12 @@ const resourceCards = [
     description: "Practical, beginner-friendly deep learning MOOC and library.",
     img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=200&q=80",
     link: "https://course.fast.ai/",
+  },
+  {
+    title: "Deep Learning Specialization",
+    description: "Andrew Ng's deep learning specialization on Coursera.",
+    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&q=80",
+    link: "https://www.coursera.org/specializations/deep-learning",
   }
 ]
 
@@ -71,7 +77,12 @@ const Index = () => {
                 title="Inclusive & Fun"
                 text="All backgrounds welcome! Join for learning, competitions, or just to have fun with tech & friends."
                 key="about-3"
-              />
+              />,
+              <AboutCard
+                title="Open Source Spirit"
+                text="We believe in sharing! Get involved, contribute to club projects, and help build a better community for everyone."
+                key="about-4"
+              />,
             ]}
             slidesPerView={{ base: 1, md: 2, lg: 3 }}
           />
@@ -97,6 +108,12 @@ const Index = () => {
               date="Ongoing"
               img="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80"
               key="event-3"
+            />,
+            <EventCard
+              title="ML Bootcamp"
+              date="April 2025"
+              img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+              key="event-4"
             />
           ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
@@ -106,7 +123,8 @@ const Index = () => {
           <CarouselRow items={[
             <AibyssCard session="Keynote: Frontiers in AI" speaker="Dr. S. Ghosh" img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" key="aibyss-1" />,
             <AibyssCard session="Hands-on: Gen AI Tools" speaker="Media Team" img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80" key="aibyss-2" />,
-            <AibyssCard session="Celebration & Networking" img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" key="aibyss-3" />
+            <AibyssCard session="Celebration & Networking" img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" key="aibyss-3" />,
+            <AibyssCard session="AI Ethics Roundtable" speaker="Panelists" img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" key="aibyss-4" />
           ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
         {/* MEDIA POSTS SECTION */}
@@ -115,7 +133,8 @@ const Index = () => {
           <CarouselRow items={[
             <MediaPostCard title="Intro to GANs" subtitle="Infographic" key="media-1" />,
             <MediaPostCard title="What is NLP?" subtitle="Quick Guide" key="media-2" />,
-            <MediaPostCard title="Future of Robotics" subtitle="Explainer" key="media-3" />
+            <MediaPostCard title="Future of Robotics" subtitle="Explainer" key="media-3" />,
+            <MediaPostCard title="ML vs DL" subtitle="Visual Deep Dive" key="media-4" />
           ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
         {/* BLOGS SECTION */}
@@ -139,6 +158,12 @@ const Index = () => {
               author="Mary K, ML Enthusiast"
               link="https://medium.com/"
               key="blog-3"
+            />,
+            <BlogCard
+              quote="Clarity comes not from algorithmic complexity, but from simple curiosity."
+              author="Gaurav D, Club Mentor"
+              link="https://medium.com/"
+              key="blog-4"
             />
           ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
@@ -176,6 +201,11 @@ const Index = () => {
               project="Smart Attendance"
               img="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80"
               key="project-3"
+            />,
+            <ProjectCard
+              project="Pose Estimation Portal"
+              img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+              key="project-4"
             />
           ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
