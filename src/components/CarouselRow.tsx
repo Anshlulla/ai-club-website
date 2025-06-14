@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Carousel,
@@ -46,7 +45,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   const slides = useSlidesPerView(slidesPerView);
   if (!items.length) return null;
 
-  // Carousel: show & arrows if more items than slides available
+  // Use carousel mode if more items than view
   if (items.length > slides) {
     return (
       <div className={className}>
@@ -81,10 +80,10 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
     );
   }
 
-  // Fallback: for 1–3 items (or fewer than slidesPerView), lay them out in a single horizontal scrollable row, edge-to-edge background
+  // Fallback: all other sections with 1–3 items use the EXACT Resources row UI/layout/behaviour
+  // Uniform edge-to-edge gradient background, center snap, horizontal scroll ONLY, always the same height.
   return (
     <div
-      // Prevents page scrollbars, background fills whole screen edge-to-edge on all viewports
       className={`relative left-1/2 right-1/2 -translate-x-1/2 w-screen max-w-none overflow-x-clip py-0 ${className ?? ""}`}
       style={{
         background: "linear-gradient(90deg,#edf2fb 10%, #fff 90%)"
@@ -92,17 +91,17 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
     >
       <div
         className="
-          flex flex-row flex-nowrap 
-          overflow-x-auto 
-          gap-4 sm:gap-6 md:gap-8 
-          py-4 sm:py-6 md:py-8 
-          px-4 sm:px-8 md:px-14 lg:px-28 
+          flex flex-row flex-nowrap
+          overflow-x-auto
+          gap-4 sm:gap-6 md:gap-8
+          py-4 sm:py-6 md:py-8
+          px-4 sm:px-8 md:px-14 lg:px-28
           scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-white
           snap-x snap-mandatory
         "
         style={{
           WebkitOverflowScrolling: "touch",
-          minHeight: 1,
+          minHeight: "1px",
         }}
         tabIndex={0}
         aria-label="carousel row"
