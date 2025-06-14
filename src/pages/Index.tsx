@@ -6,18 +6,18 @@ import AibyssCard from "../components/aibyss/AibyssCard";
 import MediaPostCard from "../components/media/MediaPostCard";
 import BlogCard from "../components/blog/BlogCard";
 import ProjectCard from "../components/project/ProjectCard";
+import Footer from "../components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-100 font-sans">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-100 font-sans flex flex-col">
       <header className="pt-10 pb-6 flex flex-col items-center">
         <h1 className="font-playfair text-5xl md:text-7xl font-bold text-primary mb-2 tracking-tight">AI Club</h1>
         <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-center mt-2">
           Exploring Technology · Unleashing Potential · Building Together
         </p>
       </header>
-      <main className="max-w-7xl mx-auto px-4 pb-12 flex flex-col gap-12">
-
+      <main className="max-w-7xl mx-auto px-4 pb-12 flex flex-col gap-12 flex-1">
         {/* ABOUT SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-indigo-800 tracking-tight">About the Club</h2>
@@ -36,7 +36,6 @@ const Index = () => {
             />
           </SectionCarousel>
         </section>
-
         {/* EVENTS SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-indigo-900 tracking-tight">Events</h2>
@@ -58,7 +57,6 @@ const Index = () => {
             />
           </SectionCarousel>
         </section>
-
         {/* AIBYSS SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-violet-900 tracking-tight">AIBYSS</h2>
@@ -68,7 +66,6 @@ const Index = () => {
             <AibyssCard session="Celebration & Networking" img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" />
           </SectionCarousel>
         </section>
-
         {/* MEDIA POSTS SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-cyan-800 tracking-tight">Concept Media Posts</h2>
@@ -78,7 +75,6 @@ const Index = () => {
             <MediaPostCard title="Future of Robotics" subtitle="Explainer" />
           </SectionCarousel>
         </section>
-
         {/* BLOGS SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-green-800 tracking-tight">Blogs & Articles</h2>
@@ -100,7 +96,6 @@ const Index = () => {
             />
           </SectionCarousel>
         </section>
-
         {/* PROJECTS SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-800 tracking-tight">Projects</h2>
@@ -119,8 +114,8 @@ const Index = () => {
             />
           </SectionCarousel>
         </section>
-
       </main>
+      <Footer />
     </div>
   );
 };
