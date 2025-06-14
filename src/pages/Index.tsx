@@ -1,4 +1,3 @@
-
 import SectionCarousel from "../components/SectionCarousel";
 import AboutCard from "../components/about/AboutCard";
 import EventCard from "../components/event/EventCard";
@@ -6,6 +5,7 @@ import AibyssCard from "../components/aibyss/AibyssCard";
 import MediaPostCard from "../components/media/MediaPostCard";
 import BlogCard from "../components/blog/BlogCard";
 import ProjectCard from "../components/project/ProjectCard";
+import ResourceCard from "../components/resources/ResourceCard";
 import Footer from "../components/Footer";
 
 const Index = () => {
@@ -53,7 +53,7 @@ const Index = () => {
             <EventCard
               title="Industry Talks"
               date="Ongoing"
-              img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80"
+              img="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80"
             />
           </SectionCarousel>
         </section>
@@ -62,7 +62,7 @@ const Index = () => {
           <h2 className="text-3xl font-playfair font-bold mb-4 text-violet-900 tracking-tight">AIBYSS</h2>
           <SectionCarousel>
             <AibyssCard session="Keynote: Frontiers in AI" speaker="Dr. S. Ghosh" img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" />
-            <AibyssCard session="Hands-on: Gen AI Tools" speaker="Media Team" img="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80" />
+            <AibyssCard session="Hands-on: Gen AI Tools" speaker="Media Team" img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80" />
             <AibyssCard session="Celebration & Networking" img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" />
           </SectionCarousel>
         </section>
@@ -93,6 +93,36 @@ const Index = () => {
               quote="Machine learning is like farming: the real growth happens in the unseen layers."
               author="Mary K, ML Enthusiast"
               link="https://medium.com/"
+            />
+          </SectionCarousel>
+        </section>
+        {/* RESOURCES SECTION */}
+        <section>
+          <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 tracking-tight">Resources</h2>
+          <SectionCarousel>
+            <ResourceCard 
+              title="Machine Learning Crash Course"
+              description="Google’s free course with video lectures, notes, and practical exercises." 
+              img="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=200&q=80"
+              link="https://developers.google.com/machine-learning/crash-course"
+            />
+            <ResourceCard 
+              title="Stanford CS231n"
+              description="Legendary deep learning course with video lectures and notes." 
+              img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=200&q=80"
+              link="http://cs231n.stanford.edu/"
+            />
+            <ResourceCard 
+              title="Kaggle"
+              description="Data science competitions, public datasets, and hands-on projects." 
+              img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=200&q=80"
+              link="https://kaggle.com/"
+            />
+            <ResourceCard 
+              title="Fast.ai"
+              description="Practical, beginner-friendly deep learning MOOC and library."
+              img="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=200&q=80"
+              link="https://course.fast.ai/"
             />
           </SectionCarousel>
         </section>
