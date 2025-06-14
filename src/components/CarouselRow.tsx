@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   Carousel,
@@ -8,7 +9,6 @@ import {
 } from "./ui/carousel";
 
 // Responsive number of slides shown, based on screen size
-// Can override with slidesPerView if needed
 type CarouselRowProps = {
   items: React.ReactNode[];
   slidesPerView?: { base?: number; sm?: number; md?: number; lg?: number };
@@ -17,13 +17,6 @@ type CarouselRowProps = {
   showArrowsAbove?: boolean;
 };
 
-const breakpoints = [
-  { minWidth: 1024, slides: 3 }, // lg
-  { minWidth: 768, slides: 2 },  // md
-  { minWidth: 0, slides: 1 },    // base
-];
-
-// Helper to get slidesPerView for current screen width
 function useSlidesPerView(custom?: CarouselRowProps["slidesPerView"]) {
   const [slides, setSlides] = React.useState(1);
 
@@ -53,7 +46,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   const slides = useSlidesPerView(slidesPerView);
   if (!items.length) return null;
 
-  // Only show carousel & arrows if more items than slides available
+  // Show carousel & arrows if more items than slides available
   if (items.length > slides) {
     return (
       <div className={className}>
@@ -87,10 +80,11 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
       </div>
     );
   }
-  // If few items, just list them side-by-side without carousel
+
+  // Fallback: for 1–3 items (or whatever slidesPerView is), lay them out in a horizontal flex row (not grid), just like the Resources section
   return (
     <div
-      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-${slidesPerView.md ?? 2} lg:grid-cols-${slidesPerView.lg ?? 3} gap-6 justify-items-center ${className ?? ""}`}
+      className={`flex flex-row flex-wrap justify-center gap-6 w-full ${className ?? ""}`}
     >
       {items.map((elem, i) => (
         <div key={i} className={itemClassName}>{elem}</div>
