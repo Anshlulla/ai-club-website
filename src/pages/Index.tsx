@@ -1,5 +1,4 @@
 import SectionCarousel from "../components/SectionCarousel";
-import AboutCard from "../components/about/AboutCard";
 import EventCard from "../components/event/EventCard";
 import AibyssCard from "../components/aibyss/AibyssCard";
 import MediaPostCard from "../components/media/MediaPostCard";
@@ -62,30 +61,13 @@ const Index = () => {
         {/* ABOUT SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-indigo-800 tracking-tight">About the Club</h2>
-          <CarouselRow items={[
-              <AboutCard
-                title="Who We Are"
-                text="Welcome to the AI Club! A passionate group diving into Artificial Intelligence, Machine Learning, and creative tech as a community."
-                key="about-1"
-              />,
-              <AboutCard
-                title="Our Mission"
-                text="Empower students to explore, build, and share. Together we organize workshops, discussions and projects to push boundaries."
-                key="about-2"
-              />,
-              <AboutCard
-                title="Inclusive & Fun"
-                text="All backgrounds welcome! Join for learning, competitions, or just to have fun with tech & friends."
-                key="about-3"
-              />,
-              <AboutCard
-                title="Open Source Spirit"
-                text="We believe in sharing! Get involved, contribute to club projects, and help build a better community for everyone."
-                key="about-4"
-              />,
-            ]}
-            slidesPerView={{ base: 1, md: 2, lg: 3 }}
-          />
+          <div className="bg-white border border-indigo-100 rounded-2xl shadow-md p-7 flex flex-col items-center max-w-2xl mx-auto animate-fade-in">
+            <h3 className="font-bold text-xl text-indigo-700 mb-3">What We Do</h3>
+            <p className="text-base text-slate-700 text-center">
+              The AI Club is a community for anyone fascinated by artificial intelligence and machine learning.
+              We organize hands-on workshops, engaging discussions, hackathons, and collaborative projects to help members explore, learn, and build with AI technologies. Whether you're just starting out or already experienced, you'll find opportunities to grow, connect, and contribute. Everyone is welcome — join us as we create, innovate, and make AI fun and accessible for all!
+            </p>
+          </div>
         </section>
         {/* EVENTS SECTION */}
         <section>
