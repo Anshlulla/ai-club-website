@@ -49,7 +49,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const cardWidth = container.children[0]?.getBoundingClientRect().width || 320;
+      const cardWidth = 320 + 24; // card width + gap
       container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
     }
   };
@@ -57,7 +57,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const cardWidth = container.children[0]?.getBoundingClientRect().width || 320;
+      const cardWidth = 320 + 24; // card width + gap
       container.scrollBy({ left: cardWidth, behavior: 'smooth' });
     }
   };
@@ -107,13 +107,13 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
     );
   }
 
-  // Fallback: Fixed window with internal horizontal scrolling - only 3 cards visible
+  // Fallback: Fixed window with internal horizontal scrolling - exactly 3 cards visible
   return (
     <div className={`relative w-full max-w-7xl mx-auto ${className ?? ""}`}>
-      {/* Left Arrow Button */}
+      {/* Left Arrow Button - positioned outside the viewport */}
       <button
         onClick={scrollLeft}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
+        className="absolute -left-6 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
         aria-label="Scroll left"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -121,10 +121,10 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
         </svg>
       </button>
 
-      {/* Right Arrow Button */}
+      {/* Right Arrow Button - positioned outside the viewport */}
       <button
         onClick={scrollRight}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
+        className="absolute -right-6 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
         aria-label="Scroll right"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -132,29 +132,28 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
         </svg>
       </button>
 
-      {/* Fixed viewport showing exactly 3 cards */}
-      <div className="overflow-hidden mx-12 py-4 md:py-6">
+      {/* Fixed viewport container - shows exactly 3 cards */}
+      <div 
+        className="overflow-hidden py-4 md:py-6"
+        style={{ 
+          width: 'calc(3 * 320px + 2 * 24px)', // exactly 3 cards + 2 gaps
+          margin: '0 auto'
+        }}
+      >
         <div
           ref={scrollContainerRef}
-          className="
-            flex flex-row flex-nowrap
-            gap-4 md:gap-6
-            transition-transform duration-300 ease-out
-            overflow-x-hidden
-          "
+          className="flex flex-row flex-nowrap gap-6 transition-transform duration-300 ease-out overflow-x-auto scrollbar-hide"
           style={{
-            width: `calc(3 * 320px + 2 * 1.5rem)`,
-            WebkitOverflowScrolling: "touch"
+            width: `calc(${items.length} * 320px + ${items.length - 1} * 24px)`, // total width of all cards
+            WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none"
           }}
         >
           {items.map((elem, i) => (
             <div
               key={i}
-              className={`
-                shrink-0
-                w-80
-                ${itemClassName ?? ""}
-              `}
+              className={`shrink-0 w-80 ${itemClassName ?? ""}`}
             >
               {elem}
             </div>
