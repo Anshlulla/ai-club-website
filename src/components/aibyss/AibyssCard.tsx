@@ -7,7 +7,7 @@ const AibyssCard: React.FC<{ session: string; speaker?: string; img?: string }> 
   speaker,
   img,
 }) => (
-  <div className="bg-white shadow-xl rounded-2xl p-6 flex flex-col items-center border border-indigo-100 w-72 min-h-[320px] snap-center shrink-0 hover:scale-105 transition-transform">
+  <div className="bg-white shadow-xl rounded-2xl p-6 flex flex-col items-center border border-indigo-100 w-72 min-h-[340px] snap-center shrink-0 hover:scale-105 transition-transform">
     <span className="inline-block rounded-full bg-gradient-to-br from-violet-600 via-indigo-200 to-violet-400 p-3 mb-2">
       <Book className="text-white" size={28} />
     </span>
@@ -24,3 +24,4 @@ const AibyssCard: React.FC<{ session: string; speaker?: string; img?: string }> 
 );
 
 export default AibyssCard;
+

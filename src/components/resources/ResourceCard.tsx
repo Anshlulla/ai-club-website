@@ -13,7 +13,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ title, description, img, li
     href={link}
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-lg rounded-xl p-5 flex flex-col items-center border border-blue-100 w-72 snap-center shrink-0 hover:scale-105 hover:shadow-xl transition-transform group no-underline"
+    className="bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-lg rounded-xl p-5 flex flex-col items-center border border-blue-100 w-72 min-h-[330px] snap-center shrink-0 hover:scale-105 hover:shadow-xl transition-transform group no-underline"
     aria-label={title}
   >
     <img src={img} alt={title} className="w-20 h-20 object-cover rounded mb-3 shadow group-hover:shadow-md" />
@@ -24,3 +24,4 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ title, description, img, li
 );
 
 export default ResourceCard;
+

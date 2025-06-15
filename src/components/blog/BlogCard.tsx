@@ -7,7 +7,7 @@ const BlogCard: React.FC<{ quote: string; author: string; link: string }> = ({
   author,
   link,
 }) => (
-  <div className="bg-white border border-green-100 shadow-xl rounded-2xl w-72 min-h-[320px] p-6 flex flex-col snap-center shrink-0 hover:scale-105 transition-transform">
+  <div className="bg-white border border-green-100 shadow-xl rounded-2xl w-80 min-h-[350px] p-6 flex flex-col snap-center shrink-0 hover:scale-105 transition-transform">
     <span className="inline-block rounded-full bg-gradient-to-br from-emerald-400 via-green-300 to-blue-400 p-3 mb-2 self-center">
       <LinkIcon className="text-white" size={28} />
     </span>
@@ -29,3 +29,4 @@ const BlogCard: React.FC<{ quote: string; author: string; link: string }> = ({
 );
 
 export default BlogCard;
+

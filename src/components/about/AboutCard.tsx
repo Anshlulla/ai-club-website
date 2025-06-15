@@ -16,3 +16,4 @@ const AboutCard: React.FC<{ title: string; text: string }> = ({
 );
 
 export default AboutCard;
+
