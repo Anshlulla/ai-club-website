@@ -1,5 +1,4 @@
 
-
 import React from "react";
 import {
   Carousel,
@@ -45,26 +44,52 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   showArrowsAbove = false,
 }) => {
   const slides = useSlidesPerView(slidesPerView);
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const scrollAmount = container.clientWidth * 0.8; // Scroll 80% of container width
+      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const scrollAmount = container.clientWidth * 0.8; // Scroll 80% of container width
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   if (!items.length) return null;
 
   // Use carousel mode if more items than view
   if (items.length > slides) {
     return (
       <div className={`relative w-full max-w-7xl mx-auto overflow-visible ${className ?? ""}`}>
-        <Carousel className="w-full mx-auto relative overflow-visible">
+        <Carousel 
+          className="w-full mx-auto relative overflow-visible"
+          opts={{
+            align: "start",
+            loop: false,
+            skipSnaps: false,
+            dragFree: false
+          }}
+        >
           {showArrowsAbove && (
             <div className="flex justify-between mb-3 px-2">
               <CarouselPrevious />
               <CarouselNext />
             </div>
           )}
-          <CarouselContent>
+          <CarouselContent className="-ml-2 md:-ml-4">
             {items.map((elem, i) => (
               <CarouselItem
                 key={i}
-                className={`basis-full sm:basis-1/${slidesPerView.sm ?? 2} md:basis-1/${slidesPerView.md ?? 2} lg:basis-1/${slidesPerView.lg ?? 3} px-2 ${itemClassName ?? ""}`}
+                className={`pl-2 md:pl-4 ${itemClassName ?? ""}`}
                 style={{
-                  flex: `0 0 calc(100% / ${slides})`
+                  flex: `0 0 calc(100% / ${slides} - 0.5rem)`
                 }}
               >
                 {elem}
@@ -73,8 +98,8 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
           </CarouselContent>
           {!showArrowsAbove && (
             <>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
             </>
           )}
         </Carousel>
@@ -82,28 +107,53 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
     );
   }
 
-  // Fallback: ALL rows (except About) should not use w-screen or negative translate.
-  // Instead: just flex in a container, never go outside normal flow!
+  // Fallback: Enhanced horizontal scrolling with arrow navigation
   return (
     <div
-      className={`relative w-full max-w-7xl mx-auto overflow-visible py-0 ${className ?? ""}`}
+      className={`relative w-full max-w-7xl mx-auto overflow-visible ${className ?? ""}`}
       style={{
         background: "linear-gradient(90deg,#edf2fb 10%, #fff 90%)"
       }}
     >
+      {/* Left Arrow Button */}
+      <button
+        onClick={scrollLeft}
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
+        aria-label="Scroll left"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="15,18 9,12 15,6"></polyline>
+        </svg>
+      </button>
+
+      {/* Right Arrow Button */}
+      <button
+        onClick={scrollRight}
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
+        aria-label="Scroll right"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="9,18 15,12 9,6"></polyline>
+        </svg>
+      </button>
+
       <div
+        ref={scrollContainerRef}
         className="
           flex flex-row flex-nowrap
-          overflow-x-auto
+          overflow-x-auto overflow-y-hidden
           gap-4 sm:gap-6 md:gap-8
           py-4 sm:py-6 md:py-8
-          px-4 sm:px-8 md:px-14 lg:px-28
-          scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-white
+          px-12 sm:px-16 md:px-20 lg:px-32
+          scrollbar-hide
           snap-x snap-mandatory
+          scroll-smooth
         "
         style={{
           WebkitOverflowScrolling: "touch",
           minHeight: "1px",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none"
         }}
         tabIndex={0}
         aria-label="carousel row"
@@ -131,4 +181,3 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
 };
 
 export default CarouselRow;
-
