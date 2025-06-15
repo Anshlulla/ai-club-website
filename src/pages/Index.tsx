@@ -61,7 +61,7 @@ const Index = () => {
         {/* ABOUT SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-indigo-800 tracking-tight">About the Club</h2>
-          <div className="bg-white border border-indigo-100 rounded-2xl shadow-md p-7 flex flex-col items-center max-w-2xl mx-auto animate-fade-in">
+          <div className="bg-white border border-indigo-100 rounded-2xl shadow-md p-7 flex flex-col items-center max-w-2xl mx-auto animate-fade-in transition-transform duration-200 hover:scale-105 hover:shadow-xl cursor-pointer">
             <h3 className="font-bold text-xl text-indigo-700 mb-3">What We Do</h3>
             <p className="text-base text-slate-700 text-center">
               The AI Club is a community for anyone fascinated by artificial intelligence and machine learning.
