@@ -94,6 +94,46 @@ const eventsData = [
   },
 ];
 
+// SYMBITECH DATA for detail routing IDs
+const symbitechData = [
+  {
+    id: "aibyss",
+    session: "AIBYSS (RL Based Maze Solver)",
+    speaker: "TBA",
+    img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "prompt-painters",
+    session: "Prompt Painters (Prompt Engineering)",
+    speaker: "TBA",
+    img: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "tba-event",
+    session: "TBA (Placeholder Event)",
+    speaker: "TBA",
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "upcoming-event",
+    session: "Upcoming Event",
+    speaker: "TBA",
+    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "stay-tuned",
+    session: "Stay Tuned",
+    speaker: "TBA",
+    img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "more-coming-soon",
+    session: "More Coming Soon",
+    speaker: "TBA",
+    img: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=400&q=80",
+  },
+];
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-100 font-sans flex flex-col overflow-x-hidden">
@@ -139,44 +179,15 @@ const Index = () => {
           <CarouselRow
             className=""
             itemClassName="transition-transform duration-200 hover:scale-105 hover:z-10"
-            items={[
+            items={symbitechData.map(card => (
               <AibyssCard
-                session="AIBYSS (RL Based Maze Solver)"
-                speaker="TBA"
-                img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
-                key="symbitech-1"
-              />,
-              <AibyssCard
-                session="Prompt Painters (Prompt Engineering)"
-                speaker="TBA"
-                img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80"
-                key="symbitech-2"
-              />,
-              <AibyssCard
-                session="TBA (Placeholder Event)"
-                speaker="TBA"
-                img="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80"
-                key="symbitech-3"
-              />,
-              <AibyssCard
-                session="Upcoming Event"
-                speaker="TBA"
-                img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
-                key="symbitech-4"
-              />,
-              <AibyssCard
-                session="Stay Tuned"
-                speaker="TBA"
-                img="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80"
-                key="symbitech-5"
-              />,
-              <AibyssCard
-                session="More Coming Soon"
-                speaker="TBA"
-                img="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=400&q=80"
-                key="symbitech-6"
+                key={card.id}
+                session={card.session}
+                speaker={card.speaker}
+                img={card.img}
+                id={card.id}
               />
-            ]}
+            ))}
             slidesPerView={{ base: 1, md: 2, lg: 3 }}
           />
         </section>

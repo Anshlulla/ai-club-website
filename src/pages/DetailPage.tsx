@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
@@ -74,7 +73,63 @@ const MOCK_DATA: Record<string, Record<string, any>> = {
       ],
     },
   },
-  // ...other types (symbitech, media, blog, project, resource) can be added in a similar fashion
+  symbitech: {
+    "aibyss": {
+      title: "AIBYSS (RL Based Maze Solver)",
+      date: "SymbiTech 2025 - Coming Soon",
+      description: "Explore the fascinating world of reinforcement learning with our RL-based maze solver! Learn the theory and see agents in action, solving real mazes step-by-step.",
+      photos: [
+        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=700&q=80",
+        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=700&q=80",
+      ],
+    },
+    "prompt-painters": {
+      title: "Prompt Painters (Prompt Engineering)",
+      date: "SymbiTech 2025 - Coming Soon",
+      description: "Dive deep into the art and science of prompt engineering! Discover how to craft effective prompts to get the most out of generative AI models in text and art.",
+      photos: [
+        "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=700&q=80",
+        "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=700&q=80",
+      ],
+    },
+    "tba-event": {
+      title: "TBA (Placeholder Event)",
+      date: "SymbiTech 2025 - Coming Soon",
+      description: "Stay tuned for an exciting new session announcement! We're planning something special for our next SymbiTech slot.",
+      photos: [
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80",
+        "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=700&q=80",
+      ],
+    },
+    "upcoming-event": {
+      title: "Upcoming Event",
+      date: "SymbiTech 2025 - Coming Soon",
+      description: "More technical wonders are on the horizon in SymbiTech! Check back for workshop topics, speakers, and more.",
+      photos: [
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=700&q=80",
+        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=700&q=80",
+      ],
+    },
+    "stay-tuned": {
+      title: "Stay Tuned",
+      date: "To Be Announced",
+      description: "We're always cooking up new ideas for SymbiTech! Keep an eye out for future events and hands-on sessions.",
+      photos: [
+        "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=700&q=80",
+        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=700&q=80",
+      ],
+    },
+    "more-coming-soon": {
+      title: "More Coming Soon",
+      date: "Stay Tuned!",
+      description: "We'll be announcing new speakers, demonstrations, and hands-on learning opportunities as part of the SymbiTech series.",
+      photos: [
+        "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=700&q=80",
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80",
+      ],
+    },
+  },
+  // ... other types (symbitech, media, blog, project, resource) can be added in a similar fashion
 };
 
 const DetailPage = () => {
@@ -120,4 +175,3 @@ const DetailPage = () => {
 };
 
 export default DetailPage;
-
