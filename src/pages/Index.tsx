@@ -14,6 +14,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "../components/ui/carousel";
+import { Link } from "react-router-dom";
 
 const resourceCards = [
   {
@@ -48,6 +49,51 @@ const resourceCards = [
   }
 ]
 
+const eventsData = [
+  {
+    id: "annual-hackathon",
+    title: "Annual Hackathon",
+    date: "March 2025",
+    img: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "ai-quiz-bowl",
+    title: "AI Quiz Bowl",
+    date: "Feb 2025",
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "industry-talks",
+    title: "Industry Talks",
+    date: "Ongoing",
+    img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "ml-bootcamp",
+    title: "ML Bootcamp",
+    date: "April 2025",
+    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "genai-exhibition",
+    title: "GenAI Exhibition",
+    date: "Coming Soon",
+    img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "workshop",
+    title: "Workshop",
+    date: "Coming Soon",
+    img: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "expert-speaker",
+    title: "Expert Speaker",
+    date: "Coming Soon",
+    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80",
+  },
+];
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-100 font-sans flex flex-col overflow-x-hidden">
@@ -78,50 +124,12 @@ const Index = () => {
           <CarouselRow
             className=""
             itemClassName="transition-transform duration-200 hover:scale-105 hover:z-10"
-            items={[
+            items={eventsData.map(event => (
               <EventCard
-                title="Annual Hackathon"
-                date="March 2025"
-                img="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=400&q=80"
-                key="event-1"
-              />,
-              <EventCard
-                title="AI Quiz Bowl"
-                date="Feb 2025"
-                img="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80"
-                key="event-2"
-              />,
-              <EventCard
-                title="Industry Talks"
-                date="Ongoing"
-                img="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80"
-                key="event-3"
-              />,
-              <EventCard
-                title="ML Bootcamp"
-                date="April 2025"
-                img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
-                key="event-4"
-              />,
-              <EventCard
-                title="GenAI Exhibition"
-                date="Coming Soon"
-                img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
-                key="event-5"
-              />,
-              <EventCard
-                title="Workshop"
-                date="Coming Soon"
-                img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80"
-                key="event-6"
-              />,
-              <EventCard
-                title="Expert Speaker"
-                date="Coming Soon"
-                img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80"
-                key="event-7"
+                {...event}
+                key={event.id}
               />
-            ]}
+            ))}
             slidesPerView={{ base: 1, md: 2, lg: 3 }}
           />
         </section>

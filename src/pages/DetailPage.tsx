@@ -1,0 +1,69 @@
+import React from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+
+const MOCK_DATA: Record<string, Record<string, any>> = {
+  event: {
+    "annual-hackathon": {
+      title: "Annual Hackathon",
+      date: "March 2025",
+      description: "Join our flagship hackathon and compete with teams to build the future using AI and ML. Great prizes, fun vibes, and awesome learning!",
+      photos: [
+        "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=700&q=80",
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80"
+      ]
+    },
+    "ai-quiz-bowl": {
+      title: "AI Quiz Bowl",
+      date: "Feb 2025",
+      description: "Test your AI knowledge and compete in a fun, challenging quiz with peers.",
+      photos: [
+        "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=700&q=80"
+      ]
+    },
+    // ...add others as needed
+  },
+  // ...other types (symbitech, media, blog, project, resource) can be added in a similar fashion
+};
+
+const DetailPage = () => {
+  const { type, id } = useParams<{ type: string; id: string }>();
+  const navigate = useNavigate();
+
+  const details = MOCK_DATA[type ?? ""]?.[id ?? ""];
+
+  if (!details) {
+    return (
+      <div className="flex flex-col min-h-screen justify-center items-center">
+        <p className="text-xl font-semibold">Not found.</p>
+        <button
+          className="text-primary underline mt-2"
+          onClick={() => navigate(-1)}
+        >
+          Go Back
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="max-w-2xl mx-auto py-8 px-4">
+      <Link to="/home" className="text-indigo-600 hover:underline mb-4 inline-block">&larr; Back</Link>
+      <h1 className="text-3xl font-bold mb-2">{details.title}</h1>
+      <p className="text-lg text-primary mb-2">{details.date}</p>
+      <p className="mb-4 text-slate-700">{details.description}</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        {details.photos?.map((src: string, i: number) => (
+          <img
+            key={i}
+            src={src}
+            alt={details.title}
+            className="w-full h-52 object-cover rounded-lg shadow"
+          />
+        ))}
+      </div>
+      {/* Add more detail fields here as needed */}
+    </div>
+  );
+};
+
+export default DetailPage;
