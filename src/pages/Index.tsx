@@ -50,14 +50,14 @@ const resourceCards = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-100 font-sans flex flex-col">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-100 font-sans flex flex-col overflow-x-hidden">
       <header className="pt-10 pb-6 flex flex-col items-center">
         <h1 className="font-playfair text-5xl md:text-7xl font-bold text-primary mb-2 tracking-tight">AI Club</h1>
         <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-center mt-2">
           Exploring Technology · Unleashing Potential · Building Together
         </p>
       </header>
-      <main className="max-w-7xl mx-auto px-4 pb-12 flex flex-col gap-12 flex-1">
+      <main className="max-w-7xl mx-auto px-4 pb-12 flex flex-col gap-12 flex-1 w-full">
         {/* ABOUT SECTION */}
         <section className="relative py-14 overflow-visible">
           <h2 className="text-3xl font-playfair font-bold mb-4 text-indigo-800 tracking-tight">About the Club</h2>

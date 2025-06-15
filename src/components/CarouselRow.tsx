@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import {
   Carousel,
@@ -49,8 +50,8 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   // Use carousel mode if more items than view
   if (items.length > slides) {
     return (
-      <div className={`relative w-full overflow-visible ${className ?? ""}`}>
-        <Carousel className="w-full max-w-5xl mx-auto relative overflow-visible">
+      <div className={`relative w-full max-w-7xl mx-auto overflow-visible ${className ?? ""}`}>
+        <Carousel className="w-full mx-auto relative overflow-visible">
           {showArrowsAbove && (
             <div className="flex justify-between mb-3 px-2">
               <CarouselPrevious />
@@ -81,11 +82,11 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
     );
   }
 
-  // Fallback: all other sections with 1–3 items use the EXACT Resources row UI/layout/behaviour
-  // Uniform edge-to-edge gradient background, center snap, horizontal scroll ONLY, always the same height.
+  // Fallback: ALL rows (except About) should not use w-screen or negative translate.
+  // Instead: just flex in a container, never go outside normal flow!
   return (
     <div
-      className={`relative left-1/2 right-1/2 -translate-x-1/2 w-screen max-w-none overflow-visible py-0 ${className ?? ""}`}
+      className={`relative w-full max-w-7xl mx-auto overflow-visible py-0 ${className ?? ""}`}
       style={{
         background: "linear-gradient(90deg,#edf2fb 10%, #fff 90%)"
       }}
