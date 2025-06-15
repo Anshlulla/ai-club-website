@@ -61,7 +61,7 @@ const Index = () => {
         {/* ABOUT SECTION */}
         <section>
           <h2 className="text-3xl font-playfair font-bold mb-4 text-indigo-800 tracking-tight">About the Club</h2>
-          <div className="bg-white border border-indigo-100 rounded-2xl shadow-md p-7 flex flex-col items-center max-w-2xl mx-auto animate-fade-in transition-transform duration-200 hover:scale-105 hover:shadow-xl cursor-pointer">
+          <div className="bg-white border border-indigo-100 rounded-2xl shadow-md p-7 flex flex-col items-center max-w-2xl mx-auto animate-fade-in transition-transform duration-200 hover:scale-105 hover:shadow-xl select-none">
             <h3 className="font-bold text-xl text-indigo-700 mb-3">What We Do</h3>
             <p className="text-base text-slate-700 text-center">
               The AI Club is a community for anyone fascinated by artificial intelligence and machine learning.
@@ -96,17 +96,67 @@ const Index = () => {
               date="April 2025"
               img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
               key="event-4"
+            />,
+            <EventCard
+              title="GenAI Exhibition"
+              date="Coming Soon"
+              img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
+              key="event-5"
+            />,
+            <EventCard
+              title="Workshop"
+              date="Coming Soon"
+              img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80"
+              key="event-6"
+            />,
+            <EventCard
+              title="Expert Speaker"
+              date="Coming Soon"
+              img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80"
+              key="event-7"
             />
           ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
-        {/* AIBYSS SECTION */}
+        {/* SYMBITECH SECTION */}
         <section>
-          <h2 className="text-3xl font-playfair font-bold mb-4 text-violet-900 tracking-tight">AIBYSS</h2>
+          <h2 className="text-3xl font-playfair font-bold mb-4 text-violet-900 tracking-tight">SymbiTech</h2>
           <CarouselRow items={[
-            <AibyssCard session="Keynote: Frontiers in AI" speaker="Dr. S. Ghosh" img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" key="aibyss-1" />,
-            <AibyssCard session="Hands-on: Gen AI Tools" speaker="Media Team" img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80" key="aibyss-2" />,
-            <AibyssCard session="Celebration & Networking" img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" key="aibyss-3" />,
-            <AibyssCard session="AI Ethics Roundtable" speaker="Panelists" img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" key="aibyss-4" />
+            <AibyssCard
+              session="AIBYSS (RL Based Maze Solver)"
+              speaker="TBA"
+              img="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
+              key="symbitech-1"
+            />,
+            <AibyssCard
+              session="Prompt Painters (Prompt Engineering)"
+              speaker="TBA"
+              img="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80"
+              key="symbitech-2"
+            />,
+            <AibyssCard
+              session="TBA (Placeholder Event)"
+              speaker="TBA"
+              img="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80"
+              key="symbitech-3"
+            />,
+            <AibyssCard
+              session="Upcoming Event"
+              speaker="TBA"
+              img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+              key="symbitech-4"
+            />,
+            <AibyssCard
+              session="Stay Tuned"
+              speaker="TBA"
+              img="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80"
+              key="symbitech-5"
+            />,
+            <AibyssCard
+              session="More Coming Soon"
+              speaker="TBA"
+              img="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=400&q=80"
+              key="symbitech-6"
+            />
           ]} slidesPerView={{ base: 1, md: 2, lg: 3 }} />
         </section>
         {/* MEDIA POSTS SECTION */}
