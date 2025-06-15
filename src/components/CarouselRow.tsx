@@ -49,7 +49,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const cardWidth = container.children[0]?.getBoundingClientRect().width || 300;
+      const cardWidth = container.children[0]?.getBoundingClientRect().width || 320;
       container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
     }
   };
@@ -57,7 +57,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const cardWidth = container.children[0]?.getBoundingClientRect().width || 300;
+      const cardWidth = container.children[0]?.getBoundingClientRect().width || 320;
       container.scrollBy({ left: cardWidth, behavior: 'smooth' });
     }
   };
@@ -107,7 +107,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
     );
   }
 
-  // Fallback: Fixed window with internal horizontal scrolling
+  // Fallback: Fixed window with internal horizontal scrolling - only 3 cards visible
   return (
     <div className={`relative w-full max-w-7xl mx-auto ${className ?? ""}`}>
       {/* Left Arrow Button */}
@@ -132,42 +132,33 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
         </svg>
       </button>
 
-      <div
-        ref={scrollContainerRef}
-        className="
-          flex flex-row flex-nowrap
-          overflow-x-auto overflow-y-hidden
-          gap-4 md:gap-6
-          py-4 md:py-6
-          px-12 md:px-16
-          scrollbar-hide
-          snap-x snap-mandatory
-          scroll-smooth
-        "
-        style={{
-          WebkitOverflowScrolling: "touch",
-          scrollbarWidth: "none",
-          msOverflowStyle: "none"
-        }}
-        tabIndex={0}
-        aria-label="carousel row"
-      >
-        {items.map((elem, i) => (
-          <div
-            key={i}
-            className={`
-              shrink-0 snap-center
-              w-80 md:w-96
-              transition-transform duration-300
-              ${itemClassName ?? ""}
-            `}
-            style={{
-              scrollSnapAlign: "center"
-            }}
-          >
-            {elem}
-          </div>
-        ))}
+      {/* Fixed viewport showing exactly 3 cards */}
+      <div className="overflow-hidden px-12 md:px-16 py-4 md:py-6">
+        <div
+          ref={scrollContainerRef}
+          className="
+            flex flex-row flex-nowrap
+            gap-4 md:gap-6
+            transition-transform duration-300 ease-out
+          "
+          style={{
+            width: `calc(${items.length} * (320px + 1.5rem))`,
+            WebkitOverflowScrolling: "touch"
+          }}
+        >
+          {items.map((elem, i) => (
+            <div
+              key={i}
+              className={`
+                shrink-0
+                w-80
+                ${itemClassName ?? ""}
+              `}
+            >
+              {elem}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
