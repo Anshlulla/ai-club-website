@@ -113,7 +113,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
       {/* Left Arrow Button - positioned outside the viewport */}
       <button
         onClick={scrollLeft}
-        className="absolute -left-6 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
+        className="absolute -left-12 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
         aria-label="Scroll left"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -124,7 +124,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
       {/* Right Arrow Button - positioned outside the viewport */}
       <button
         onClick={scrollRight}
-        className="absolute -right-6 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
+        className="absolute -right-12 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
         aria-label="Scroll right"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -134,10 +134,10 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
 
       {/* Fixed viewport container - shows exactly 3 cards */}
       <div 
-        className="overflow-hidden py-4 md:py-6"
+        className="overflow-hidden py-4 md:py-6 mx-auto"
         style={{ 
-          width: 'calc(3 * 320px + 2 * 24px)', // exactly 3 cards + 2 gaps
-          margin: '0 auto'
+          width: '1008px', // exactly 3 * 320px + 2 * 24px = 1008px
+          maxWidth: '100vw'
         }}
       >
         <div
