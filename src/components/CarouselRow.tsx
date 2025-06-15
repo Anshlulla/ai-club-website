@@ -113,7 +113,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
       {/* Left Arrow Button */}
       <button
         onClick={scrollLeft}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
         aria-label="Scroll left"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -124,7 +124,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
       {/* Right Arrow Button */}
       <button
         onClick={scrollRight}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
         aria-label="Scroll right"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -133,16 +133,17 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
       </button>
 
       {/* Fixed viewport showing exactly 3 cards */}
-      <div className="overflow-hidden px-12 md:px-16 py-4 md:py-6">
+      <div className="overflow-hidden mx-12 py-4 md:py-6">
         <div
           ref={scrollContainerRef}
           className="
             flex flex-row flex-nowrap
             gap-4 md:gap-6
             transition-transform duration-300 ease-out
+            overflow-x-hidden
           "
           style={{
-            width: `calc(${items.length} * (320px + 1.5rem))`,
+            width: `calc(3 * 320px + 2 * 1.5rem)`,
             WebkitOverflowScrolling: "touch"
           }}
         >
