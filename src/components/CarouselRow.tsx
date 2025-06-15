@@ -49,16 +49,16 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const scrollAmount = container.clientWidth * 0.8; // Scroll 80% of container width
-      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      const cardWidth = container.children[0]?.getBoundingClientRect().width || 300;
+      container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const scrollAmount = container.clientWidth * 0.8; // Scroll 80% of container width
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      const cardWidth = container.children[0]?.getBoundingClientRect().width || 300;
+      container.scrollBy({ left: cardWidth, behavior: 'smooth' });
     }
   };
 
@@ -67,9 +67,9 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
   // Use carousel mode if more items than view
   if (items.length > slides) {
     return (
-      <div className={`relative w-full max-w-7xl mx-auto overflow-visible ${className ?? ""}`}>
+      <div className={`relative w-full max-w-7xl mx-auto ${className ?? ""}`}>
         <Carousel 
-          className="w-full mx-auto relative overflow-visible"
+          className="w-full mx-auto relative"
           opts={{
             align: "start",
             loop: false,
@@ -107,14 +107,9 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
     );
   }
 
-  // Fallback: Enhanced horizontal scrolling with arrow navigation
+  // Fallback: Fixed window with internal horizontal scrolling
   return (
-    <div
-      className={`relative w-full max-w-7xl mx-auto overflow-visible ${className ?? ""}`}
-      style={{
-        background: "linear-gradient(90deg,#edf2fb 10%, #fff 90%)"
-      }}
-    >
+    <div className={`relative w-full max-w-7xl mx-auto ${className ?? ""}`}>
       {/* Left Arrow Button */}
       <button
         onClick={scrollLeft}
@@ -142,16 +137,15 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
         className="
           flex flex-row flex-nowrap
           overflow-x-auto overflow-y-hidden
-          gap-4 sm:gap-6 md:gap-8
-          py-4 sm:py-6 md:py-8
-          px-12 sm:px-16 md:px-20 lg:px-32
+          gap-4 md:gap-6
+          py-4 md:py-6
+          px-12 md:px-16
           scrollbar-hide
           snap-x snap-mandatory
           scroll-smooth
         "
         style={{
           WebkitOverflowScrolling: "touch",
-          minHeight: "1px",
           scrollbarWidth: "none",
           msOverflowStyle: "none"
         }}
@@ -163,8 +157,7 @@ const CarouselRow: React.FC<CarouselRowProps> = ({
             key={i}
             className={`
               shrink-0 snap-center
-              w-[min(20rem,90vw)] sm:w-72 md:w-80
-              max-w-xs md:max-w-sm
+              w-80 md:w-96
               transition-transform duration-300
               ${itemClassName ?? ""}
             `}
