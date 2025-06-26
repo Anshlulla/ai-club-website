@@ -6,7 +6,7 @@ import { symbitechData } from "../../data/mockData";
 
 const SymbiTechSection = () => (
   <section className="relative py-10 overflow-visible">
-    <h2 className="text-3xl font-playfair font-bold mb-4 text-violet-900 tracking-tight">SymbiTech</h2>
+    <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 dark:text-slate-400 tracking-tight">SymbiTech</h2>
     <CarouselRow
       className=""
       itemClassName="transition-transform duration-200 hover:scale-105 hover:z-10"

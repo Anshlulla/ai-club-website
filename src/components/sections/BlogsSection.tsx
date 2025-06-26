@@ -5,7 +5,7 @@ import BlogCard from "../blog/BlogCard";
 
 const BlogsSection = () => (
   <section>
-    <h2 className="text-3xl font-playfair font-bold mb-4 text-green-800 tracking-tight">Blogs & Articles</h2>
+    <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 dark:text-slate-400 tracking-tight">Blogs & Articles</h2>
     <CarouselRow items={[
       <BlogCard
         quote="AI won't replace you, but a person using AI might."

@@ -6,7 +6,7 @@ import { resourceCards } from "../../data/mockData";
 
 const ResourcesSection = () => (
   <section>
-    <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 tracking-tight">Resources</h2>
+    <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 dark:text-slate-400 tracking-tight">Resources</h2>
     <CarouselRow
       items={resourceCards.map((card) => (
         <ResourceCard

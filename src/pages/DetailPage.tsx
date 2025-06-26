@@ -130,6 +130,8 @@ const MOCK_DATA: Record<string, Record<string, any>> = {
     },
   },
   // ... other types (symbitech, media, blog, project, resource) can be added in a similar fashion
+
+  
 };
 
 const DetailPage = () => {
