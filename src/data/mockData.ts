@@ -1,8 +1,8 @@
 
 export const resourceCards = [
   {
-    title: "Machine Learning Crash Course",
-    description: "Google's free course with video lectures, notes, and practical exercises.",
+    title: "ML Crash Course",
+    description: "Google's free course with video lectures and notes.",
     img: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=200&q=80",
     link: "https://developers.google.com/machine-learning/crash-course",
   },
@@ -26,7 +26,7 @@ export const resourceCards = [
   },
   {
     title: "Deep Learning Specialization",
-    description: "Andrew Ng's deep learning specialization on Coursera.",
+    description: "Andrew Ng's DL specialization.",
     img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&q=80",
     link: "https://www.coursera.org/specializations/deep-learning",
   }

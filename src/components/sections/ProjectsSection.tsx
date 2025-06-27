@@ -5,7 +5,7 @@ import ProjectCard from "../project/ProjectCard";
 
 const ProjectsSection = () => (
   <section>
-    <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-800 tracking-tight">Projects</h2>
+    <h2 className="text-3xl font-playfair font-bold mb-4 text-blue-900 dark:text-slate-400 tracking-tight">Projects</h2>
     <CarouselRow items={[
       <ProjectCard
         project="Generative Art App"

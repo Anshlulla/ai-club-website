@@ -8,7 +8,7 @@ const AboutCard = () => (
         <Image className="text-white" size={40} />
       </span>
     </div>
-    <h2 className="font-playfair text-2xl font-bold mb-2 text-indigo-800 tracking-tight">About the Club</h2>
+    <h2 className="font-playfair text-2xl font-bold mb-2 text-white tracking-tight">About the Club</h2>
     <p className="text-base text-slate-700 text-center mb-4">
       Welcome to the AI Club! We're a group of students passionate about Artificial Intelligence, Machine Learning,
       and pushing the boundaries of tech together — from workshops and competitions to thought-provoking discussions and cool projects.
